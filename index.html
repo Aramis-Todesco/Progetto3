@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Countdown</title>
+</head>
+<body>
+    <article id="countdown">
+        <h1>Conto alla rovescia</h1>
+
+        <section id="time">
+            <div>
+                <span id="giorni">0</span>giorni
+            </div>
+            <div>
+                <span id="ore">0</span>ore
+            </div>
+            <div>
+                <span id="minuti">0</span>minuti
+            </div>
+            <div>
+                <span id="secondi">0</span>secondi
+            </div>
+        </section>
+    </article>
+
+    <script type="module">
+        import Countdown from "./countdown.js";
+        new Countdown(14, 3, 2024);
+    </script>
+</body>
+</html>
