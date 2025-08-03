@@ -1,35 +1,81 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
 
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-body, html {
-    height: 100vh;
+body,
+html {
+  height: 100vh;
 }
 html {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 body {
-    color: #222;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Lato, sans-serif;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Lato, sans-serif;
+  flex-direction: column;
+  padding: 20px;
 }
-#time {
-    display: flex;
-    justify-content: space-between;
-}
-#time > div {
-    text-align: center;
-    margin-inline: 2rem;
-}
-#time span {
-    display: block;
-    font-size: 4rem;
-    font-weight: 300;
+#countdown {
+  width: 100%;
+  max-width: 600px;
 }
 #countdown > h1 {
-    text-align: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+#time > div {
+  text-align: center;
+  margin-inline: 1rem;
+}
+#time span {
+  display: block;
+  font-size: 4rem;
+  font-weight: 300;
+}
+
+/* Stili per il form */
+#countdownForm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+#countdownForm .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#countdownForm label {
+  text-align: left;
+}
+#countdownForm input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#countdownForm button {
+  grid-column: span 3;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+#countdownForm button:hover {
+  background-color: #0056b3;
 }

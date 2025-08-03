@@ -1,34 +1,74 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Countdown</title>
-</head>
-<body>
+  </head>
+  <body>
     <article id="countdown">
-        <h1>Conto alla rovescia</h1>
+      <h1>Conto alla rovescia</h1>
 
-        <section id="time">
-            <div>
-                <span id="giorni">0</span>giorni
-            </div>
-            <div>
-                <span id="ore">0</span>ore
-            </div>
-            <div>
-                <span id="minuti">0</span>minuti
-            </div>
-            <div>
-                <span id="secondi">0</span>secondi
-            </div>
-        </section>
+      <!-- Form per l'input della data -->
+      <form id="countdownForm">
+        <div class="form-group">
+          <label for="input-giorno">Giorno:</label>
+          <input type="number" id="input-giorno" min="1" max="31" required />
+        </div>
+        <div class="form-group">
+          <label for="input-mese">Mese:</label>
+          <input type="number" id="input-mese" min="1" max="12" required />
+        </div>
+        <div class="form-group">
+          <label for="input-anno">Anno:</label>
+          <input type="number" id="input-anno" min="2024" required />
+        </div>
+        <div class="form-group">
+          <label for="input-ore">Ore:</label>
+          <input
+            type="number"
+            id="input-ore"
+            min="0"
+            max="23"
+            value="0"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="input-minuti">Minuti:</label>
+          <input
+            type="number"
+            id="input-minuti"
+            min="0"
+            max="59"
+            value="0"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="input-secondi">Secondi:</label>
+          <input
+            type="number"
+            id="input-secondi"
+            min="0"
+            max="59"
+            value="0"
+            required
+          />
+        </div>
+
+        <button type="submit">Avvia Countdown</button>
+      </form>
+
+      <section id="time">
+        <div><span id="giorni">0</span>giorni</div>
+        <div><span id="ore">0</span>ore</div>
+        <div><span id="minuti">0</span>minuti</div>
+        <div><span id="secondi">0</span>secondi</div>
+      </section>
     </article>
 
-    <script type="module">
-        import Countdown from "./countdown.js";
-        new Countdown(14, 3, 2024);
-    </script>
-</body>
+    <script type="module" src="./countdown.js"></script>
+  </body>
 </html>
