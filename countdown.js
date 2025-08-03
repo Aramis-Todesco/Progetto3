@@ -55,6 +55,42 @@ export default class Countdown {
 
 // Inizializza l'applicazione dopo che il DOM è stato caricato
 document.addEventListener("DOMContentLoaded", () => {
+  // Funzione per impostare i valori minimi in base alla data e ora corrente
+  const setMinDate = () => {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth() + 1; // getMonth() è 0-based
+    const currentDay = now.getDate();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    const currentSecond = now.getSeconds();
+
+    // Imposta il valore minimo dell'anno e il suo valore predefinito
+    document.querySelector("#input-anno").min = currentYear;
+    document.querySelector("#input-anno").value = currentYear;
+
+    // Imposta il valore minimo del mese e il suo valore predefinito
+    document.querySelector("#input-mese").min = 1;
+    document.querySelector("#input-mese").value = currentMonth;
+
+    // Imposta il valore minimo del giorno e il suo valore predefinito
+    document.querySelector("#input-giorno").min = 1;
+    document.querySelector("#input-giorno").value = currentDay;
+
+    // Imposta i valori minimi per l'ora, i minuti e i secondi
+    document.querySelector("#input-ore").min = currentHour;
+    document.querySelector("#input-ore").value = currentHour;
+
+    document.querySelector("#input-minuti").min = currentMinute;
+    document.querySelector("#input-minuti").value = currentMinute;
+
+    document.querySelector("#input-secondi").min = currentSecond;
+    document.querySelector("#input-secondi").value = currentSecond;
+  };
+
+  // Chiama la funzione all'avvio
+  setMinDate();
+
   const form = document.querySelector("#countdownForm");
   const avviaButton = form.querySelector("button[type='submit']");
   let countdownInstance = null;
