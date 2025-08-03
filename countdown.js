@@ -56,24 +56,43 @@ export default class Countdown {
 // Inizializza l'applicazione dopo che il DOM è stato caricato
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#countdownForm");
+  const avviaButton = form.querySelector("button[type='submit']");
   let countdownInstance = null;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Se un countdown è già in corso, usa il metodo stopCountdown per fermarlo
-    if (countdownInstance) {
-      countdownInstance.stopCountdown();
+    // Controlla lo stato del pulsante per decidere l'azione
+    if (avviaButton.textContent === "Avvia Countdown") {
+      // Avvia il countdown
+      const giorno = parseInt(document.querySelector("#input-giorno").value);
+      const mese = parseInt(document.querySelector("#input-mese").value);
+      const anno = parseInt(document.querySelector("#input-anno").value);
+      const ore = parseInt(document.querySelector("#input-ore").value);
+      const minuti = parseInt(document.querySelector("#input-minuti").value);
+      const secondi = parseInt(document.querySelector("#input-secondi").value);
+
+      // Ferma l'istanza precedente se esiste
+      if (countdownInstance) {
+        countdownInstance.stopCountdown();
+      }
+
+      // Crea una nuova istanza del countdown
+      countdownInstance = new Countdown(
+        giorno,
+        mese,
+        anno,
+        ore,
+        minuti,
+        secondi
+      );
+      avviaButton.textContent = "Ferma Countdown";
+    } else if (avviaButton.textContent === "Ferma Countdown") {
+      // Ferma il countdown
+      if (countdownInstance) {
+        countdownInstance.stopCountdown();
+      }
+      avviaButton.textContent = "Avvia Countdown";
     }
-
-    // Seleziona i campi input all'interno del form con i nuovi ID
-    const giorno = parseInt(document.querySelector("#input-giorno").value);
-    const mese = parseInt(document.querySelector("#input-mese").value);
-    const anno = parseInt(document.querySelector("#input-anno").value);
-    const ore = parseInt(document.querySelector("#input-ore").value);
-    const minuti = parseInt(document.querySelector("#input-minuti").value);
-    const secondi = parseInt(document.querySelector("#input-secondi").value);
-
-    countdownInstance = new Countdown(giorno, mese, anno, ore, minuti, secondi);
   });
 });
